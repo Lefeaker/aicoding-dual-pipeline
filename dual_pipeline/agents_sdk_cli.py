@@ -159,7 +159,7 @@ class CodexMCPBridge:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        prog="codex-dual-pipeline-agents",
+        prog="aicoding-dual-pipeline-agents",
         description="Run the dual-role pipeline through Agents SDK with a Codex MCP backend.",
     )
     parser.add_argument("--repo", required=True, help="Target git repository path.")
@@ -207,7 +207,7 @@ def build_config(args: argparse.Namespace) -> AppConfig:
 def run_config(config: AppConfig) -> RunConfig:
     return RunConfig(
         model=config.agent_model,
-        workflow_name="Codex Dual Pipeline",
+        workflow_name="AI Coding Dual Pipeline",
         tracing_disabled=config.tracing_disabled,
     )
 

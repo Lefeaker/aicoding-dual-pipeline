@@ -2,7 +2,7 @@
 
 ## Purpose
 
-这个 Skill 不是主产品，而是 `codex-dual-pipeline` 的可选适配层。
+这个 Skill 不是主产品，而是 `aicoding-dual-pipeline` 的可选适配层。
 
 它的作用不是替代 MCP，而是帮助支持 Skill 的 agent 更稳定地调用这个 MCP。
 

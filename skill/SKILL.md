@@ -1,11 +1,11 @@
 ---
-name: codex-dual-pipeline
-description: Use this skill when an agent already has access to the codex-dual-pipeline MCP and needs guidance on when and how to call its tools for structured AI coding workflows. It is for choosing between pipeline_loop and background run mode, preferring goal_file over goal, reading session_summary first, and keeping reviewer, developer, and verifier responsibilities separated.
+name: aicoding-dual-pipeline
+description: Use this skill when an agent already has access to the aicoding-dual-pipeline MCP and needs guidance on when and how to call its tools for structured AI coding workflows. It is for choosing between pipeline_loop and background run mode, preferring goal_file over goal, reading session_summary first, and keeping reviewer, developer, and verifier responsibilities separated.
 ---
 
-# Codex Dual Pipeline
+# AI Coding Dual Pipeline
 
-Use this skill only when the `codex-dual-pipeline` MCP is available.
+Use this skill only when the `aicoding-dual-pipeline` MCP is available.
 
 ## Purpose
 

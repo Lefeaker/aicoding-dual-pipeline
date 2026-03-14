@@ -2,7 +2,7 @@
 
 ## Positioning
 
-`codex-dual-pipeline` 的主产品形态是一个 MCP server。
+`aicoding-dual-pipeline` 的主产品形态是一个 MCP server。
 
 如果你想把它接到自己的 AI coding 工具里，应该优先集成 MCP，而不是依赖一段 prompt 或说明文档来“模拟调用”。
 

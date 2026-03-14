@@ -11,7 +11,7 @@
 ## Development
 
 ```bash
-cd /path/to/codex-dual-pipeline
+cd /path/to/aicoding-dual-pipeline
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -e .

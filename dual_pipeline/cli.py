@@ -30,7 +30,7 @@ class StageConfig:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        prog="codex-dual-pipeline",
+        prog="aicoding-dual-pipeline",
         description="Run a reviewer/developer/verifier Codex pipeline against a local git repo.",
     )
     parser.add_argument(

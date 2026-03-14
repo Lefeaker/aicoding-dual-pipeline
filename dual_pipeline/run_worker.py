@@ -24,7 +24,7 @@ def write_json(path: Path, data: dict) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(prog="codex-dual-pipeline-run-worker")
+    parser = argparse.ArgumentParser(prog="aicoding-dual-pipeline-run-worker")
     parser.add_argument("--run-metadata", required=True)
     parser.add_argument("--log-path", required=True)
     parser.add_argument("--repo", required=True)

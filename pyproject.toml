@@ -1,5 +1,5 @@
 [project]
-name = "codex-dual-pipeline"
+name = "aicoding-dual-pipeline"
 version = "0.1.0"
 description = "Local reviewer/developer Codex pipeline orchestrator"
 requires-python = ">=3.11"
@@ -8,9 +8,9 @@ dependencies = [
 ]
 
 [project.scripts]
-codex-dual-pipeline = "dual_pipeline.cli:main"
-codex-dual-pipeline-agents = "dual_pipeline.agents_sdk_cli:main"
-codex-dual-pipeline-mcp = "dual_pipeline.mcp_server:main"
+aicoding-dual-pipeline = "dual_pipeline.cli:main"
+aicoding-dual-pipeline-agents = "dual_pipeline.agents_sdk_cli:main"
+aicoding-dual-pipeline-mcp = "dual_pipeline.mcp_server:main"
 
 [build-system]
 requires = ["setuptools>=68"]

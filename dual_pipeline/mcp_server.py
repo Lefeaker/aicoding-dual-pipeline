@@ -200,7 +200,7 @@ READ_ARTIFACT_OUTPUT_SCHEMA = {
 
 def build_server() -> Server:
     server = Server(
-        "codex-dual-pipeline-mcp",
+        "aicoding-dual-pipeline-mcp",
         version="0.1.0",
         instructions=(
             "Use pipeline_loop to run the local reviewer/developer verification loop against a git repo. "
@@ -306,7 +306,7 @@ def prepare_run_inputs(arguments: dict[str, Any]) -> tuple[Path, Path, Path, str
         artifacts_dir = Path(str(arguments["artifacts_dir"])).expanduser().resolve()
         artifacts_dir.mkdir(parents=True, exist_ok=True)
     else:
-        artifacts_dir = Path(tempfile.mkdtemp(prefix="codex-dual-pipeline-"))
+        artifacts_dir = Path(tempfile.mkdtemp(prefix="aicoding-dual-pipeline-"))
 
     if has_goal_file:
         raw_goal_file = Path(str(arguments["goal_file"]))
@@ -638,7 +638,7 @@ async def async_main() -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        prog="codex-dual-pipeline-mcp",
+        prog="aicoding-dual-pipeline-mcp",
         description="Expose the local pipeline loop as an MCP stdio server.",
     )
     return parser.parse_args()
