@@ -1,0 +1,20 @@
+[project]
+name = "codex-dual-pipeline"
+version = "0.1.0"
+description = "Local reviewer/developer Codex pipeline orchestrator"
+requires-python = ">=3.11"
+dependencies = [
+  "openai-agents",
+]
+
+[project.scripts]
+codex-dual-pipeline = "dual_pipeline.cli:main"
+codex-dual-pipeline-agents = "dual_pipeline.agents_sdk_cli:main"
+codex-dual-pipeline-mcp = "dual_pipeline.mcp_server:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["dual_pipeline"]

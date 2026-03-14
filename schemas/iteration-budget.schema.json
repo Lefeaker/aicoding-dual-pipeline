@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "estimated_iterations",
+    "rationale"
+  ],
+  "properties": {
+    "estimated_iterations": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 12
+    },
+    "rationale": {
+      "type": "string"
+    }
+  }
+}
