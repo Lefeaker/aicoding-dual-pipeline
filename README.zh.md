@@ -1,5 +1,7 @@
 # aicoding-dual-pipeline
 
+[English](README.md) | [中文](README.zh.md)
+
 `aicoding-dual-pipeline` 是一个本地优先的 Codex 编排器，用来把“大任务交给一个代理一次做完”的流程，拆成更稳定、可复查的多阶段流水线。
 
 项目定位是 `MCP + optional Skill`：
@@ -20,8 +22,6 @@
 - 需要把“规划”和“改代码”强制分离
 - 想把中间产物落盘，方便追查和复盘
 - 想把一个内层流水线暴露给外层 Codex 或其他 agent 调用
-
-英文版见 [README.md](README.md)。
 
 ## Why This Exists
 

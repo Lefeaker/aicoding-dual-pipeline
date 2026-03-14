@@ -1,5 +1,7 @@
 # aicoding-dual-pipeline
 
+[English](README.md) | [中文](README.zh.md)
+
 `aicoding-dual-pipeline` is a local-first Codex orchestrator for turning a single large AI coding request into a structured multi-stage workflow that is easier to review, verify, and integrate.
 
 The project is positioned as `MCP + optional Skill`:
@@ -7,21 +9,62 @@ The project is positioned as `MCP + optional Skill`:
 - `MCP` is the primary product surface for tool integration
 - `Skill` is an optional guidance layer for agents that support skills or prompt packs
 
-It splits execution into fixed roles:
+## At a Glance
 
-- `review`: Reviewer / Planner, reads the repo and produces `plan.json`
-- `develop`: Developer / Executor, implements the approved plan and produces `result.json`
-- `verify`: Reviewer / Verifier, re-checks the implementation and produces `verdict.json`
-- `loop`: generates an initial plan, then iterates between Developer and Reviewer until completion
+- split AI coding work into explicit planning, execution, and verification stages
+- expose that workflow as an MCP toolset for external AI coding assistants
+- keep structured JSON artifacts for inspection, retry logic, and orchestration
 
-This design is useful when you want to:
+## Workflow
 
-- use Codex as a local engineering executor rather than a chat interface
-- enforce a hard separation between planning and implementation
-- persist intermediate artifacts for inspection and debugging
-- expose an inner execution pipeline to an outer AI coding assistant
+```mermaid
+flowchart LR
+  A["Goal or goal_file"] --> B["review"]
+  B --> C["plan.json"]
+  C --> D["develop"]
+  D --> E["result.json"]
+  E --> F["verify"]
+  F --> G{"pass?"}
+  G -- "yes" --> H["session_summary.json"]
+  G -- "no, next_tasks" --> I["updated plan.json"]
+  I --> D
+```
 
-Chinese version: [README.zh.md](README.zh.md)
+## Who Is This For
+
+- teams building local-first AI coding tools that need a callable execution pipeline
+- agent builders who want reviewer/developer/verifier separation instead of one free-form prompt
+- workflows that need persistent machine-readable artifacts for auditing or retries
+- integrations that want MCP first, with an optional Skill on top
+
+## Who Is This Not For
+
+- users looking for a chat-first coding assistant UI
+- workflows that only need a single prompt and do not benefit from structured handoff
+- hosted SaaS orchestration out of the box; this repository is local-first
+- users who do not want artifact files, schemas, or explicit stage boundaries
+
+## Quick Start
+
+Install and run the full three-stage workflow against a local Git repository:
+
+```bash
+cd /path/to/aicoding-dual-pipeline
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -e .
+
+aicoding-dual-pipeline \
+  --repo /path/to/repo \
+  --goal "Fix session expiration handling and add regression coverage" \
+  run
+```
+
+If you want to integrate it into another agent, start here:
+
+- [docs/mcp.md](docs/mcp.md)
+- [docs/skill.md](docs/skill.md)
+- [skill/SKILL.md](skill/SKILL.md)
 
 ## Why This Exists
 
@@ -63,28 +106,6 @@ Core constraints:
 - the Reviewer does not edit code
 - the Developer does not redefine the task plan unless blocked
 - handoff happens through structured JSON artifacts
-
-## Quick Start
-
-Install and run the full three-stage workflow against a local Git repository:
-
-```bash
-cd /path/to/aicoding-dual-pipeline
-python3 -m venv .venv
-source .venv/bin/activate
-python3 -m pip install -e .
-
-aicoding-dual-pipeline \
-  --repo /path/to/repo \
-  --goal "Fix session expiration handling and add regression coverage" \
-  run
-```
-
-If you want to integrate it into another agent, start here:
-
-- [docs/mcp.md](docs/mcp.md)
-- [docs/skill.md](docs/skill.md)
-- [skill/SKILL.md](skill/SKILL.md)
 
 ## Requirements
 
